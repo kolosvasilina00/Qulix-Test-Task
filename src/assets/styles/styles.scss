@@ -1,0 +1,288 @@
+@import "util/normalize";
+@import "util/global";
+@import "util/colors";
+@import "util/mixins";
+@import "util/fonts";
+
+
+body {
+  background-color: $dark-theme;
+}
+
+.modal-window {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.modal-dialog {
+  position: relative;
+  background-color: $white;
+  padding: 35px;
+  border-radius: 25px;
+  display: flex;
+  font-family: $main-font;
+  max-width: 480px;
+  z-index: 2;
+}
+
+.modal-dialog:before {
+  width: 99%;
+  height: 99%;
+  content: '';
+  position: absolute;
+  z-index: 1;
+  border: 2px solid $white;
+  border-radius: 23.24px;
+  transform: rotate(2deg) translate(-37px,-32px);
+}
+
+.modal-content {
+  z-index: 1000;
+}
+
+.modal-title {
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 31px;
+  margin-bottom: 29px;
+}
+
+.form-title {
+  border: none;
+  border-bottom: 1px solid $gray;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0em;
+  color: $dark-black;
+  margin: 15px 0;
+  padding-bottom: 15px;
+  width: 100%;
+}
+
+.form-title::placeholder {
+  color: $gray;
+}
+
+.counter {
+  color: $gray;
+  display: inline-block;
+  float: right;
+  transform: translate(6px,-55px);
+  font-size: 18px;
+}
+
+.form-description {
+  border: none;
+  margin: 5px 0 15px;
+  font-size: 18px;
+  width: 100%;
+}
+
+.selectColor {
+  display: flex;
+  align-items: center;
+}
+
+.selectColor-title {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0em;
+  color: $gray;
+  margin: 22px 36px 15px 0;
+  transform: translateY(8px);
+}
+
+label.colorContainer {
+  display: inline-block;
+  position: relative;
+  padding-left: 42px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.grayColor, .blueColor, .redColor, .blackColor, .yellowColor {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+}
+
+.checkmark:after {
+  position: absolute;
+  content: '';
+  display: none;
+}
+
+.grayColor + .checkmark {
+  background-color: $grayColor;
+}
+
+.blueColor + .checkmark {
+  background-color: $blueColor;
+}
+
+.redColor + .checkmark {
+  background-color: $redColor;
+}
+
+.blackColor + .checkmark {
+  background-color: $blackColor;
+}
+
+.yellowColor + .checkmark {
+  background-color: $yellowColor;
+}
+
+.colorContainer input:checked ~ .checkmark:after {
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg width='38' height='38' viewBox='0 0 38 38' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle opacity='0.4' cx='19' cy='19.3513' r='18' stroke='%239797AA'/%3E%3Cpath d='M24.3334 15.3513L17 22.6847L13.6667 19.3513' stroke='white' stroke-width='1.33333' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.colorContainer .checkmark:after {
+  top: -5px;
+  left: -5px;
+  width: 38px;
+  height: 38px;
+}
+
+.selectdiv {
+  position: relative;
+  width: 100%;
+  margin: 15px 0;
+}
+
+/*To remove button from IE11, thank you Matt */
+select::-ms-expand {
+  display: none;
+}
+
+.selectdiv:before {
+  content: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.2725 21.8782V19.8782C20.2725 18.8173 19.851 17.7999 19.1009 17.0497C18.3507 16.2996 17.3333 15.8782 16.2725 15.8782H8.27246C7.21159 15.8782 6.19418 16.2996 5.44403 17.0497C4.69389 17.7999 4.27246 18.8173 4.27246 19.8782V21.8782' stroke='%23151515' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M12.2725 11.8782C14.4816 11.8782 16.2725 10.0873 16.2725 7.87817C16.2725 5.66903 14.4816 3.87817 12.2725 3.87817C10.0633 3.87817 8.27246 5.66903 8.27246 7.87817C8.27246 10.0873 10.0633 11.8782 12.2725 11.8782Z' stroke='%23151515' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+  position: absolute;
+  left: 10px;
+  top: 20px;
+}
+
+.selectdiv:after {
+  content: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.27231 9.87817L12.2723 15.8782L18.2723 9.87817' stroke='%23151515' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+  font: $main-font;
+  color: $gray;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  pointer-events: none;
+}
+
+.selectdiv select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Add some styling */
+
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  float: right;
+  margin: 5px 0px;
+  padding: 0px 24px;
+  font-size: 16px;
+  line-height: 1.75;
+  color: $gray;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  -ms-word-break: normal;
+  word-break: normal;
+}
+
+select.assignee {
+  padding: 12px 0px 10px 46px;
+}
+
+select.assignee option {
+  font-size: 16px;
+}
+
+.datapickers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 105px;
+}
+
+label #start, label #end {
+  font-family: $main-font;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  color: $gray;
+  padding: 15px 5px 15px 10px;
+  flex-flow: row-reverse;
+  border-radius: 8px;
+  border: 1px solid rgba(86, 103, 137, 0.26);
+}
+
+#start {
+  margin-right: 24px;
+}
+
+label #start::-webkit-calendar-picker-indicator, label #end::-webkit-calendar-picker-indicator {
+  color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.2725 4.48254H5.27246C4.16789 4.48254 3.27246 5.37797 3.27246 6.48254V20.4825C3.27246 21.5871 4.16789 22.4825 5.27246 22.4825H19.2725C20.377 22.4825 21.2725 21.5871 21.2725 20.4825V6.48254C21.2725 5.37797 20.377 4.48254 19.2725 4.48254Z' stroke='%23151515' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16.2725 2.48254V6.48254' stroke='%23151515' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M8.27246 2.48254V6.48254' stroke='%23151515' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M3.27246 10.4825H21.2725' stroke='%23151515' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border-width: thin;
+}
+
+.resetButton, .submitButton {
+  font-family: $secondary-font;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0em;
+  border: none;
+  border-radius: 11px;
+  padding: 11px 65px;
+}
+
+.buttons {
+  flex-direction: row;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.resetButton {
+  background-color: $resetColor;
+  color: $resetColorText;
+  margin: 27px 7px 0 0;
+}
+
+.submitButton {
+  background-color: $submitColor;
+  color: $white;
+}

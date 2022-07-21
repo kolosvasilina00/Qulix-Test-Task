@@ -7,4 +7,47 @@ html(lang="en")
     title Qulix Test Task
     link(rel="stylesheet", href="./assets/styles/styles.css")
   body
-    h1 Hello
+    main
+      section.modal-window
+        .modal-dialog
+            .modal-content
+              form(action='#')
+                h4.modal-title
+                  | Create New task
+                input.form-title#form-title(type='text' name='title' placeholder='Title' maxlength='100')
+                div.counter#counter 0/100
+                input.form-description(type='textarea' name='description' placeholder='Click to add Description' rows='1')
+                .selectColor
+                  h5.selectColor-title Label color
+                  label.colorContainer
+                    input.grayColor(type='radio' name='selectColor' value='gray' id='gray' checked)
+                    span.checkmark
+                  label.colorContainer
+                    input.blueColor(type='radio' name='selectColor' value='blue' id='blue')
+                    span.checkmark
+                  label.colorContainer
+                    input.redColor(type='radio' name='selectColor' value='red')
+                    span.checkmark
+                  label.colorContainer
+                    input.blackColor(type='radio' name='selectColor' value='black')
+                    span.checkmark
+                  label.colorContainer
+                    input.yellowColor(type='radio' name='selectColor' value='yellow')
+                    span.checkmark
+                .selectdiv
+                  label(for='assignee')
+                    select#assignee.assignee(name='assignee')
+                      option(value='' disabled selected) Select Assignee
+                      option(value='1-assignee') 1 assignee
+                      option(value='2-assignee') 2 assignee
+                      option(value='3-assignee') 3 assignee
+                      option(value='4-assignee') 4 assignee
+                .datapickers
+                  label(for='start')
+                    input#start(type='date' name='task-start' value='start' min='12-05-21' max='23-07-22')
+                  label(for='end')
+                   input#end(type='date' name='task-end' value='end' min='23-07-22' max='30-07-22')
+                .buttons
+                  input.resetButton(type='reset' value='Cancel')
+                  input.submitButton(type='submit' value='Save')
+script(src="./assets/js/index.js")

@@ -1,0 +1,25 @@
+/*======FONTS==========*/
+
+@font-face {
+  font-family: 'Public Sans';
+  src: url("/assets/fonts/PublicSans-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Public Sans';
+  src: url("/assets/fonts/PublicSans-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url("/assets/fonts/WorkSans-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+$main-font: Public Sans, sans-serif;
+$secondary-font: Work Sans, sans-serif;
