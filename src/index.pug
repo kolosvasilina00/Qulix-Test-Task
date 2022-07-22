@@ -34,7 +34,7 @@ html(lang="en")
                   label.colorContainer
                     input.yellowColor(type='radio' name='selectColor' value='yellow')
                     span.checkmark
-                .selectdiv
+                .selectdiv.icon.icon-user.icon-down-arrow
                   label(for='assignee')
                     select#assignee.assignee(name='assignee')
                       option(value='' disabled selected) Select Assignee
@@ -43,9 +43,9 @@ html(lang="en")
                       option(value='3-assignee') 3 assignee
                       option(value='4-assignee') 4 assignee
                 .datapickers
-                  label(for='start')
+                  label.icon.icon-calendar(for='start')
                     input#start(type='date' name='task-start' value='start' min='12-05-21' max='23-07-22')
-                  label(for='end')
+                  label.icon.icon-calendar(for='end')
                    input#end(type='date' name='task-end' value='end' min='23-07-22' max='30-07-22')
                 .buttons
                   input.resetButton(type='reset' value='Cancel')
